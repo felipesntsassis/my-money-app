@@ -4,9 +4,11 @@ const express = require('express');
 const { mongo } = require('mongoose');
 const mongoose = require('mongoose');
 const server = express();
+const allowCors = require('./cors');
 
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
+server.use(allowCors);
 server.listen(port, function () {
     console.log(`BACKEND está rodando na porta ${port}`);
 });
