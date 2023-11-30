@@ -12,7 +12,7 @@ class Dashboard extends Component {
                     small="Versão 1.0"
                 />
                 <Content>
-                    <h1>Dashboard</h1>
+                    
                 </Content>
             </div>
         );
