@@ -9,9 +9,9 @@ export default props => (
                 <h3>{props.value}</h3>
                 <p>{props.text}</p>
             </div>
-        </div>
-        <div className="icon">
-            <i className={`fa fa-${props.icon}`}></i>
+            <div className="icon">
+                <i className={`fa fa-${props.icon}`}></i>
+            </div>
         </div>
     </Grid>
 );
