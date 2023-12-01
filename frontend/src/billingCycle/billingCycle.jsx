@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
-import ContentHeader from '../common/template/contentHeader';
-import Content from '../common/template/content';
-import Tabs from '../common/tab/tabs';
-import TabsHeader from '../common/tab/tabsHeader';
 import TabHeader from '../common/tab/tabHeader';
+import Tabs from '../common/tab/tabs';
 import TabsContent from '../common/tab/tabsContent';
+import TabsHeader from '../common/tab/tabsHeader';
+import Content from '../common/template/content';
+import ContentHeader from '../common/template/contentHeader';
+import TabContent from '../common/tab/tabContent';
 
 
 class BillingCycle extends Component {
@@ -42,7 +43,18 @@ class BillingCycle extends Component {
                             />
                         </TabsHeader>
                         <TabsContent>
-
+                            <TabContent id="tabList">
+                                <h1>Lista</h1>
+                            </TabContent>
+                            <TabContent id="tabCreate">
+                                <h1>Incluir</h1>
+                            </TabContent>
+                            <TabContent id="tabUpdate">
+                                <h1>Alterar</h1>
+                            </TabContent>
+                            <TabContent id="tabDelete">
+                                <h1>Excluir</h1>
+                            </TabContent>
                         </TabsContent>
                     </Tabs>
                 </Content>
