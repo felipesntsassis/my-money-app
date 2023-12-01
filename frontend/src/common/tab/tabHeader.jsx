@@ -7,6 +7,7 @@ import { selectTab } from './tabActions';
 class TabHeader extends Component {
 
     render() {
+        console.log(this.props);
         const selected = this.props.tab.selected === this.props.target;
 
         return (

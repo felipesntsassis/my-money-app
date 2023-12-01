@@ -3,9 +3,9 @@ import React from 'react';
 export default props => (
     <footer className="main-footer">
         <strong>
-            Copyright &copy; 2023
+            Copyright &copy; 2023 &nbsp;
             <a href="https://dev.works.com.br" target="_blank">
-             Dev Works
+                Dev Works
             </a>.
         </strong>
     </footer>
