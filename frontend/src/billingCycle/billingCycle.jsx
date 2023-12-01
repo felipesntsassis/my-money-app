@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { selectTab } from '../common/tab/tabActions';
-import { showTabs } from '../common/tab/tabActions';
+import { bindActionCreators } from 'redux';
 
+import { selectTab, showTabs } from '../common/tab/tabActions';
+import TabContent from '../common/tab/tabContent';
 import TabHeader from '../common/tab/tabHeader';
 import Tabs from '../common/tab/tabs';
 import TabsContent from '../common/tab/tabsContent';
 import TabsHeader from '../common/tab/tabsHeader';
 import Content from '../common/template/content';
 import ContentHeader from '../common/template/contentHeader';
-import TabContent from '../common/tab/tabContent';
+import { create } from './billingCycleActions';
+import Form from './billingCycleForm';
 import List from './billingCycleList';
 
 class BillingCycle extends Component {
@@ -56,7 +57,7 @@ class BillingCycle extends Component {
                                 <List />
                             </TabContent>
                             <TabContent id="tabCreate">
-                                <h1>Incluir</h1>
+                                <Form onSubmit={this.props.create} />
                             </TabContent>
                             <TabContent id="tabUpdate">
                                 <h1>Alterar</h1>
@@ -73,6 +74,6 @@ class BillingCycle extends Component {
 
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({ selectTab, showTabs }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ create, selectTab, showTabs }, dispatch);
 
 export default connect(null, mapDispatchToProps)(BillingCycle);
