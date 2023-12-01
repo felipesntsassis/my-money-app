@@ -11,6 +11,7 @@ import TabsHeader from '../common/tab/tabsHeader';
 import Content from '../common/template/content';
 import ContentHeader from '../common/template/contentHeader';
 import TabContent from '../common/tab/tabContent';
+import List from './billingCycleList';
 
 class BillingCycle extends Component {
 
@@ -52,7 +53,7 @@ class BillingCycle extends Component {
                         </TabsHeader>
                         <TabsContent>
                             <TabContent id="tabList">
-                                <h1>Lista</h1>
+                                <List />
                             </TabContent>
                             <TabContent id="tabCreate">
                                 <h1>Incluir</h1>
