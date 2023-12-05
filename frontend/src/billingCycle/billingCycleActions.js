@@ -19,13 +19,24 @@ export function getList() {
     };
 }
 
-
 export function init() {
     return [
         showTabs('tabList', 'tabCreate'),
         selectTab('tabList'),
         getList(),
         initialize('billingCicleForm', INITIAL_VALUES)
+    ];
+}
+
+export function remove(values) {
+    return submit(values, 'delete');
+}
+
+export function showDelete(billingCycle) {
+    return [
+        showTabs('tabDelete'),
+        selectTab('tabDelete'),
+        initialize('billingCicleForm', billingCycle)
     ];
 }
 
