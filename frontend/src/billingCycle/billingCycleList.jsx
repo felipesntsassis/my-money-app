@@ -17,7 +17,7 @@ import { getList, showDelete, showUpdate } from './billingCycleActions';
                 <td>{bc.name}</td>
                 <td>{bc.month}</td>
                 <td>{bc.year}</td>
-                <td>
+                <td className="table-actions">
                     <button
                         type="button"
                         className="btn btn-warning"
