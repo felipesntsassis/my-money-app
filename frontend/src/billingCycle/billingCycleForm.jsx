@@ -10,7 +10,7 @@ import { init } from './billingCycleActions';
 class BillingCycleForm extends Component {
 
     render() {
-        const { handleSubmit, readOnly, credits } = this.props;
+        const { handleSubmit, readOnly, credits, debts } = this.props;
 
         return (
             <form role="form" onSubmit={handleSubmit}>
@@ -49,6 +49,15 @@ class BillingCycleForm extends Component {
                         readOnly={readOnly}
                     >
                     </ItemList>
+                    <ItemList
+                        cols="12 6"
+                        field="debts"
+                        legend="Débitos"
+                        list={debts}
+                        readOnly={readOnly}
+                        showStatus={true}
+                    >
+                    </ItemList>
                 </div>
                 <div className="box-footer">
                     <button type="submit" className={`btn btn-${this.props.submitClass}`}>
@@ -65,7 +74,10 @@ class BillingCycleForm extends Component {
 
 BillingCycleForm = reduxForm({ form: 'billingCycleForm', destroyOnUnmount: false })(BillingCycleForm);
 const selector = formValueSelector('billingCycleForm');
-const mapStateToProps = state => ({ credits: selector(state, 'credits') });
+const mapStateToProps = state => ({
+    credits: selector(state, 'credits'),
+    debts: selector(state, 'debts')
+});
 const mapDispatchToProps = dispatch => bindActionCreators({ init }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(BillingCycleForm);
