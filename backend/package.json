@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon",
     "production": "pm2 start src/loader.js --name my-money-backend",
-    "stop-production": "pm2 stop my-money-backend"
+    "stop": "pm2 stop my-money-backend"
   },
   "keywords": [],
   "author": "",
