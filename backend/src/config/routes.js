@@ -1,11 +1,23 @@
 const express = require('express');
+const auth = require('./auth');
 
 module.exports = function (server) {
-    // Definir a URL base para todas as rotas
-    const router = express.Router();
-    server.use('/api', router);
 
-    // Rotas do Ciclo de Pagamento
+    const protectedApi = express.Router();
+    server.use('/api', protectedApi);
+
+    protectedApi.use(auth);
+
+    /** Rotas Protegidas */
     const BillingCycle = require('../api/billingCycle/billingCycleService');
-    BillingCycle.register(router, '/billingCycles');
+    BillingCycle.register(protectedApi, '/billingCycles');
+
+    /** Rotas Públicas */
+    const openApi = express.Router();
+    server.use('/oapi', openApi);
+
+    const AuthService = require('../api/user/authService');
+    openApi.post('/login', AuthService.login);
+    openApi.post('/signup', AuthService.signup);
+    openApi.post('/validateToken', AuthService.validateToken);
 };
