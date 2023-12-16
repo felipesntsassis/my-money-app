@@ -8,11 +8,11 @@ module.exports = function (server) {
 
     protectedApi.use(auth);
 
-    /** Rotas Protegidas */
+    /** Rotas protegidas por token JWT */
     const BillingCycle = require('../api/billingCycle/billingCycleService');
     BillingCycle.register(protectedApi, '/billingCycles');
 
-    /** Rotas Públicas */
+    /** Rotas abertas */
     const openApi = express.Router();
     server.use('/oapi', openApi);
 
@@ -20,4 +20,5 @@ module.exports = function (server) {
     openApi.post('/login', AuthService.login);
     openApi.post('/signup', AuthService.signup);
     openApi.post('/validateToken', AuthService.validateToken);
+
 };
